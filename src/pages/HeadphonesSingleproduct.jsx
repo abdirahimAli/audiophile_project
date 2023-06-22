@@ -61,7 +61,7 @@ const HeadphonesSingleproduct = () => {
 
           <h1>{product.name}</h1>
           <p>{product.description}</p>
-          <span> price: ${product.price}</span>
+          <span style={{marginLeft:20}}> price: ${product.price}</span>
 
           <div className="Addtothecart">
             <div className="Quantity-singlepage">

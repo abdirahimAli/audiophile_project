@@ -16,6 +16,7 @@ const Cart = ({ setcheackout }) => {
   const { HeadphoneCartitems, setHeadphoneCartitems } = useGlobalcontext2();
   const { SpeakersCartitems, setSpeakersCartitems } = useGlobalcontext3();
   const { EarphoneCartitems, setEarphoneCartitems } = useGlobalcontext4();
+  const [Removeitem,setRemoveitem]= useState([]);
   
   
 
@@ -55,6 +56,20 @@ const Cart = ({ setcheackout }) => {
     let PriceXQuantity = product.price * item.Quantity;
     total_price.push(PriceXQuantity);
   });
+let removeArray = [];
+console.log("removeArray", removeArray);
+removeArray.push(catagoreyfilter);
+
+const Render_these_items =removeArray.map((element)=>{
+const temp =  Products_inCart.filter((item) => {
+  return item.id != element;
+});
+return temp;
+
+})
+  console.log("Render_these_items", Render_these_items);
+
+
 
   return (
     <section className="Cartcontainer">
@@ -63,7 +78,7 @@ const Cart = ({ setcheackout }) => {
       <article className="cartcomponent-container-parent">
         <div className="cart-header">
           <span>
-            <h4> cart ({Products_inCart.length})</h4>
+            <h4> cart ({Render_these_items .length})</h4>
           </span>
 
           <button className="removeall" onClick={removeall}>
@@ -71,13 +86,14 @@ const Cart = ({ setcheackout }) => {
           </button>
         </div>
 
-        {Products_inCart.length ? (
-          Products_inCart.map((product) => {
+        {Render_these_items .length ? (
+          Render_these_items[0].map((product) => {
             return (
               <Cartcomponent
                 id={product.id}
                 key={product.id}
                 Quantity={product.Quantity}
+                setRemoveitem={setRemoveitem}
               />
             );
           })
@@ -89,7 +105,7 @@ const Cart = ({ setcheackout }) => {
           <h4 className="total_price"> $ {calculateSum(total_price)}</h4>
         </div>
 
-        {Products_inCart.length ? (
+        {Render_these_items .length ? (
           <Link to="/Cheackout">
             {" "}
             <button

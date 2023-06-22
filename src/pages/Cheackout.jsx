@@ -8,8 +8,9 @@ import { Link } from "react-router-dom";
 import { useGlobalcontext2 } from "../components/context/HeadphoneContext";
 import { useGlobalcontext3 } from "../components/context/SpeakersContext";
 import { useGlobalcontext4 } from "../components/context/EarphoneContext";
-
+import { useGlobalcontext } from "../components/AppContext";
 const Cheackout = ({ ProductID_inCart }) => {
+  const { catagoreyfilter, setCatagoreyfilter } = useGlobalcontext();
   const { HeadphoneCartitems, setHeadphoneCartitems } = useGlobalcontext2();
   const { SpeakersCartitems, setSpeakersCartitems } = useGlobalcontext3();
   const { EarphoneCartitems, setEarphoneCartitems } = useGlobalcontext4();
@@ -20,7 +21,6 @@ const Cheackout = ({ ProductID_inCart }) => {
 
   // let totalplusVat = (total_price/100)*25;
   console.log("Products_inCart", Products_inCart);
-  
 
   EarphoneCartitems.map((obj) => {
     Products_inCart.push(obj);
@@ -32,12 +32,6 @@ const Cheackout = ({ ProductID_inCart }) => {
     Products_inCart.push(obj);
   });
 
-  Products_inCart.map((item) => {
-    const product = data.find((product) => product.id == item.id);
-    console.log("product", product);
-    let PriceXQuantity = product.price * item.Quantity;
-    total_price.push(PriceXQuantity);
-  });
   function calculateSum(arr) {
     var sum = 0;
     for (var i = 0; i < arr.length; i++) {
@@ -61,6 +55,16 @@ const Cheackout = ({ ProductID_inCart }) => {
   let array = inputs;
   console.log("array", array);
   // console.log("array.d", ProductID_inCart);
+
+  const Render_these_items = Products_inCart.filter((item) => {
+    return item.id != catagoreyfilter;
+  });
+  Render_these_items.map((item) => {
+    const product = data.find((product) => product.id == item.id);
+    console.log("product", product);
+    let PriceXQuantity = product.price * item.Quantity;
+    total_price.push(PriceXQuantity);
+  });
   return (
     <section className="Cartcontainer">
       <article className="Navication-back"> </article>
@@ -245,7 +249,7 @@ const Cheackout = ({ ProductID_inCart }) => {
       {Cheackout_Complet == true ? (
         <div className="Form Summary">
           <h3> Summary</h3>
-          {Products_inCart.map((product) => {
+          {Render_these_items.map((product) => {
             return (
               <Cartcomponent
                 id={product.id}
@@ -269,9 +273,10 @@ const Cheackout = ({ ProductID_inCart }) => {
                 50}
             </h4>
           </div>
-          <Link to="/ThankYou">
+          {total_price!=0? <Link to="/ThankYou">
             <button className="ContinuePay-btn"> Continue & Pay</button>
-          </Link>
+          </Link>:null}
+        
         </div>
       ) : null}
     </section>
