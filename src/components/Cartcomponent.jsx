@@ -18,8 +18,8 @@ const Cartcomponent = ({ id, Quantity, setQuantity, setRemoveitem }) => {
   const product = data.find((product) => product.id == id);
   const [ItemsQuantity, setItemsQuantity] = useState(Quantity);
   let array = [];
-  let newarray=[];
-//  newarray.push(catagoreyfilter); 
+  let newarray = [{}];
+  // newarray.push(catagoreyfilter);
 
   const increament = () => {
     setItemsQuantity(ItemsQuantity + 1);
@@ -45,12 +45,10 @@ const Cartcomponent = ({ id, Quantity, setQuantity, setRemoveitem }) => {
     if (product.id == 6 || product.id == 5) {
       Speakers_filterd_items.push(obj);
       setSpeakersCartitems(Speakers_filterd_items);
-      console.log("SpeakersCartitems", SpeakersCartitems);
     }
     if (product.id == 2 || product.id == 3 || product.id == 4) {
       Headphones_filterd_items.push(obj);
       setHeadphoneCartitems(Headphones_filterd_items);
-      console.log("SpeakersCartitems", SpeakersCartitems);
     }
   };
   const decrease = () => {
@@ -77,21 +75,29 @@ const Cartcomponent = ({ id, Quantity, setQuantity, setRemoveitem }) => {
       if (product.id == 6 || product.id == 5) {
         Speakers_filterd_items.push(obj);
         setSpeakersCartitems(Speakers_filterd_items);
-        console.log("SpeakersCartitems", SpeakersCartitems);
       }
       if (product.id == 2 || product.id == 3 || product.id == 4) {
         Headphones_filterd_items.push(obj);
         setHeadphoneCartitems(Headphones_filterd_items);
-        console.log("SpeakersCartitems", SpeakersCartitems);
       }
     }
   };
 
   const Removeitem = () => {
-    // setRemoveitem(product.id);
-    
-    newarray.push(product.id);
-    setCatagoreyfilter(newarray);
+    const temp1 = EarphoneCartitems.filter((item) => {
+      return item.id != product.id;
+    });
+    const temp2 = HeadphoneCartitems.filter((item) => {
+      return item.id != product.id;
+    });
+    const tem3 = SpeakersCartitems.filter((item) => {
+      return item.id != product.id;
+    });
+    if (product.id) {
+      setEarphoneCartitems(temp1);
+      setHeadphoneCartitems(temp2);
+      setSpeakersCartitems(tem3);
+    }
   };
   return (
     <section className="Cartcomponent-container">
@@ -116,7 +122,11 @@ const Cartcomponent = ({ id, Quantity, setQuantity, setRemoveitem }) => {
             -
           </span>
         </div>
-        <span style={{marginLeft:40}} onClick={Removeitem} className="Remove-item">
+        <span
+          style={{ marginLeft: 40 }}
+          onClick={Removeitem}
+          className="Remove-item"
+        >
           Remove item
         </span>
       </div>

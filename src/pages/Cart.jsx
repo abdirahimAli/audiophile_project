@@ -6,36 +6,31 @@ import { useGlobalcontext2 } from "../components/context/HeadphoneContext";
 import { useGlobalcontext3 } from "../components/context/SpeakersContext";
 import { useGlobalcontext4 } from "../components/context/EarphoneContext";
 import Cartcomponent from "../components/Cartcomponent";
-import CartitemsContext, { useGlobalcontext5 } from '../components/context/CartitemsContext'
+import CartitemsContext, {
+  useGlobalcontext5,
+} from "../components/context/CartitemsContext";
 import { Link } from "react-router-dom";
 
 const Cart = ({ setcheackout }) => {
   let out = 0;
-  // const product = data.find((product) => product.id == id);
   const { catagoreyfilter, setCatagoreyfilter } = useGlobalcontext();
   const { HeadphoneCartitems, setHeadphoneCartitems } = useGlobalcontext2();
   const { SpeakersCartitems, setSpeakersCartitems } = useGlobalcontext3();
   const { EarphoneCartitems, setEarphoneCartitems } = useGlobalcontext4();
-  const [Removeitem,setRemoveitem]= useState([]);
-  
-  
+  const [Removeitem, setRemoveitem] = useState([]);
 
   let Products_inCart = [];
 
   EarphoneCartitems.map((obj) => {
     Products_inCart.push(obj);
-    // setCartitems(Products_inCart);
   });
   HeadphoneCartitems.map((obj) => {
     Products_inCart.push(obj);
-    // setCartitems(Products_inCart);
   });
   SpeakersCartitems.map((obj) => {
     Products_inCart.push(obj);
-    // setCartitems(Products_inCart);
   });
 
-  // console.log("setCartitems", setCartitems);
   const removeall = () => {
     setHeadphoneCartitems([]);
     setSpeakersCartitems([]);
@@ -56,20 +51,22 @@ const Cart = ({ setcheackout }) => {
     let PriceXQuantity = product.price * item.Quantity;
     total_price.push(PriceXQuantity);
   });
-let removeArray = [];
-console.log("removeArray", removeArray);
-removeArray.push(catagoreyfilter);
 
-const Render_these_items =removeArray.map((element)=>{
-const temp =  Products_inCart.filter((item) => {
-  return item.id != element;
-});
-return temp;
-
-})
-  console.log("Render_these_items", Render_these_items);
-
-
+  // const temp1 = EarphoneCartitems.filter((item) => {
+  //   return item.id != catagoreyfilter;
+  // });
+  // const temp2 = HeadphoneCartitems.filter((item) => {
+  //   return item.id != catagoreyfilter;
+  // });
+  // const tem3 = SpeakersCartitems.filter((item) => {
+  //   return item.id != catagoreyfilter;
+  // });
+  // if (catagoreyfilter) {
+  //   setEarphoneCartitems(temp1);
+  //   setHeadphoneCartitems(temp2);
+  //   setSpeakersCartitems(tem3);
+  //   setCatagoreyfilter(0);
+  // }
 
   return (
     <section className="Cartcontainer">
@@ -78,7 +75,7 @@ return temp;
       <article className="cartcomponent-container-parent">
         <div className="cart-header">
           <span>
-            <h4> cart ({Render_these_items .length})</h4>
+            <h4> cart ({Products_inCart.length})</h4>
           </span>
 
           <button className="removeall" onClick={removeall}>
@@ -86,8 +83,8 @@ return temp;
           </button>
         </div>
 
-        {Render_these_items .length ? (
-          Render_these_items[0].map((product) => {
+        {Products_inCart.length ? (
+          Products_inCart.map((product) => {
             return (
               <Cartcomponent
                 id={product.id}
@@ -105,7 +102,7 @@ return temp;
           <h4 className="total_price"> $ {calculateSum(total_price)}</h4>
         </div>
 
-        {Render_these_items .length ? (
+        {Products_inCart.length ? (
           <Link to="/Cheackout">
             {" "}
             <button

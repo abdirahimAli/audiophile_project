@@ -9,11 +9,12 @@ const Display_three = () => {
         <img src={img1} />
       </div>
       <div className="Display_three-info">
-        <div className="new-product"></div>
-        <h1>yx1 earphones</h1>
-        <p></p>
-        <Link className="links-stylying" to={`/Earphones/${1}`}>
-          <button className="btn btn-2">see product</button>
+        <div className="new-product">
+          <h1> YX1 earphones</h1>
+        </div>
+
+        <Link className="D3-btn" to={`/Earphones/${1}`}>
+          <button className="btn btn-2 D3-btn">see product</button>
         </Link>
       </div>
     </article>

@@ -8,7 +8,7 @@ export const useGlobalcontext4 = () => useContext(Globalcontext4);
 
 const EarphoneContext = ({ children }) => {
   const [EarphoneCartitems, setEarphoneCartitems] = useState([
-    { id: 1, Quantity: 2 },
+    // { id: 1, Quantity: 2 },
   ]);
 
   //   console.log("HeadphoneCartitems", setHeadphoneCartitems);
