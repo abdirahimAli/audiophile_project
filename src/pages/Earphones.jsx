@@ -17,11 +17,7 @@ const Earphones = () => {
         <div className="Headphones-img1">
           <img src={product1.image.desktop} />
         </div>
-        <div className="Headphones-info1">
-          <div className="new-product">
-            <h4> NEW PRODUT</h4>
-          </div>
-
+        <div className="Headphones-info11">
           <h1>{product1.name}</h1>
           <p>{product1.description}</p>
           <Link className="links-stylying" to={`/Earphones/${product1.id}`}>

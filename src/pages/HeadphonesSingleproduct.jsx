@@ -51,7 +51,7 @@ const HeadphonesSingleproduct = () => {
         Go back
       </Link>
       <article className="Headphones-Singlproduct">
-        <div className="Headphones-img1">
+        <div className="Headphones-img11">
           <img src={product.image.desktop} />
         </div>
         <div className="Headphones-info1">
@@ -60,8 +60,11 @@ const HeadphonesSingleproduct = () => {
           </div>
 
           <h1>{product.name}</h1>
-          <p>{product.description}</p>
-          <span style={{marginLeft:20}}> price: ${product.price}</span>
+          <p className="product_description">{product.description}</p>
+          <span className="price" style={{ marginLeft: 20 }}>
+            {" "}
+            price: ${product.price}
+          </span>
 
           <div className="Addtothecart">
             <div className="Quantity-singlepage">
@@ -78,7 +81,7 @@ const HeadphonesSingleproduct = () => {
                 -
               </span>
             </div>
-            <button onClick={Addtocart} className="btn2">
+            <button onClick={Addtocart} className="btn2 btn22">
               Add to cart
             </button>
           </div>
@@ -87,7 +90,7 @@ const HeadphonesSingleproduct = () => {
       <article className="HeadphonesSinglproduct-info">
         <div className="HeadphonesSinglproduct-info1">
           <h2> FEATURES</h2>
-          <p>{product.features}</p>
+          <p className="Paragraph_info">{product.features}</p>
         </div>
         <div className="HeadphonesSinglproduct-info2">
           <h2> IN THE BOX</h2>
@@ -117,18 +120,24 @@ const HeadphonesSingleproduct = () => {
       <article className="Gallery">
         <div className="img1">
           <div className="img11">
-            <img className="image1" src={product.gallery.first.desktop} />
+            <img
+              className="image1 img_gallery1"
+              src={product.gallery.first.desktop}
+            />
           </div>
           <div className="img12">
             {" "}
             <img
-              className="image1 bottom"
+              className="image1 bottom img_gallery2"
               src={product.gallery.second.desktop}
             />
           </div>
         </div>
         <div className="img3">
-          <img className="image12" src={product.gallery.third.desktop} />
+          <img
+            className="image12 img_gallery3"
+            src={product.gallery.third.desktop}
+          />
         </div>
       </article>
       <article className="Others">

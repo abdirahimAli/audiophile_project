@@ -12,7 +12,7 @@ const Headphones = () => {
   const product1 = data.find((product) => product.id == 2);
   const product2 = data.find((product) => product.id == 3);
   const product3 = data.find((product) => product.id == 4);
-  const num = [4,3,2];
+  const num = [4, 3, 2];
   return (
     <section className="Headphones-container">
       <div className="Header">
@@ -23,11 +23,7 @@ const Headphones = () => {
         <div className="Headphones-img1">
           <img src={product3.image.desktop} />
         </div>
-        <div className="Headphones-info1">
-          <div className="new-product">
-            <h4> NEW PRODUT</h4>
-          </div>
-
+        <div className="Headphones-info11">
           <h1>{product3.name}</h1>
           <p>{product3.description}</p>
           <Link className="links-stylying" to={`/Headphones/${num[0]}`}>
@@ -38,10 +34,6 @@ const Headphones = () => {
 
       <article className="Headphones-two">
         <div className="Headphones-info2">
-          <div className="new-product">
-            <h4> NEW PRODUT</h4>
-          </div>
-
           <h1>{product2.name} </h1>
           <p>{product2.description}</p>
           <Link className="links-stylying" to={`/Headphones/${num[1]}`}>
@@ -59,9 +51,6 @@ const Headphones = () => {
           <img src={product1.image.desktop} />{" "}
         </div>
         <div className="Headphones-info3">
-          <div className="new-product">
-            <h4> NEW PRODUT</h4>
-          </div>
           <h1>{product2.name}</h1>
           <p>{product2.description}</p>
           <Link className="links-stylying" to={`/Headphones/${num[2]}`}>

@@ -24,10 +24,8 @@ const product2 = data.find((product) => product.id == 5);
         <div className="Headphones-img1">
           <img src={product1.image.desktop} />
         </div>
-        <div className="Headphones-info1">
-          <div className="new-product">
-            <h4> NEW PRODUT</h4>
-          </div>
+        <div className="Headphones-info11">
+          
 
           <h1>{product1.name}</h1>
           <p>{product1.description}</p>
@@ -39,9 +37,7 @@ const product2 = data.find((product) => product.id == 5);
 
       <article className="Headphones-two">
         <div className="Headphones-info2">
-          <div className="new-product">
-            <h4> NEW PRODUT</h4>
-          </div>
+         
 
           <h1>{product2.name}</h1>
           <p>{product2.description}</p>
