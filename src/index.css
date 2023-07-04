@@ -1254,14 +1254,18 @@ border-radius: 50%;
 
   /* Headphones-Singlproduct */
 
-  .HeadphonesSinglePage-img {
+  /* .HeadphonesSinglePage-img {
     margin-left: -400px;
     width: 80%;
+  } */
+  .HEADER_IMG {
+    margin-left: -180px;
+    width: 100%;
   }
   .Headphones-info1 {
     margin-top: 1300px;
     margin-left: -300px;
-    background-color: #0bf313;
+    /* background-color: #0bf313; */
   }
 
   .new-product {
@@ -1313,9 +1317,9 @@ border-radius: 50%;
     height: 400px;
     margin-left: -60px;
   }
-   .img_gallery3 {
+  .img_gallery3 {
     width: 900px;
-    height:730px;
+    height: 730px;
     margin-left: -60px;
     margin-top: 30px;
   }
@@ -1324,7 +1328,7 @@ border-radius: 50%;
   } */
   .product_description {
     color: #1a1a1a;
-    background-color: #f38b0b;
+    /* background-color: #f38b0b; */
     font-size: 40px;
     width: 400px;
     margin-left: -900px;
@@ -1340,7 +1344,7 @@ border-radius: 50%;
     padding-left: 220px;
   }
   .Paragraph_info {
-    background-color: #0bf313;
+    /* background-color: #0bf313; */
     margin-left: -160px;
     width: 1500px;
   }
@@ -1353,11 +1357,11 @@ border-radius: 50%;
     margin-left: -20px;
   }
   .Gallery {
-    margin-top: 850px;
+    margin-top: 360px;
     display: block;
   }
   .Others {
-    margin-top: 1850px;
+    margin-top: 1300px;
     display: block;
     margin-left: 90px;
   }
